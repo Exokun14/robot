@@ -16,10 +16,13 @@ ${var_name}  Magnus
 My First Test Case
     Launch Browser
     Input Text  id:APjFqb  Angas
+    Input Text  name:q  Hello
+    Press Keys  name:q  ENTER
+    sleep  3s
 
 *** Keywords ***
 Launch Browser
-    [Arguments]  ${url}="https://google.com"
+    [Arguments]  ${url}=https://google.com
     ${options}  Set Variable  add_argument("--start-maximized")
     Open Browser  ${url}  chrome  remote_url=192.168.49.1:4444  options=${options}
 If Else Sample
@@ -68,4 +71,6 @@ Try Else If
 
 Input Text
   [Arguments]  ${locator}  ${text}
+  SeleniumLibrary.Input Text  ${locator}  ${text}
+  sleep  3s
 
