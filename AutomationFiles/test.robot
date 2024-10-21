@@ -1,6 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library    ../venv/lib/python3.12/site-packages/robot/libraries/Telnet.py
+Library    ../venv/lib/python3.12/site-packages/robot/libraries/Collections.py
 Resource  ../Resources/SampleResource.resource
 Variables  ../Variables/variable.py
 
@@ -14,13 +15,52 @@ ${var_name}  Magnus
 *** Test Cases ***
 # Test Name
 My First Test Case
-    Launch Browser
-    Input Text  id:APjFqb  Angas
-    Input Text  name:q  Hello
-    Press Keys  name:q  ENTER
-    sleep  3s
+    Launch Browser  https://marmelab.com/react-admin-demo
+    #Input Text  id:APjFqb  Angas
+    #Input Text  name:q  Hello
+    #Press Keys  name:q  ENTER
+    Login User
+    sleep  8s
 
 *** Keywords ***
+Login User
+  [Arguments]  ${username}=demo  ${password}=demo
+  #Wait Until Element Is Visible  //button
+  Input Text  name:username  ${username}
+  Input Text  name:password  ${password}
+  Click Button  //button
+  Go To Link  Customers
+  Display All Name
+  sleep  8s
+
+Go To Link
+  [Arguments]  ${text}
+  Click Element  //a[text()="${text}"]
+  Wait Until Element Is Visible  //tbody//tr
+  sleep  5s
+
+Display All Name
+    ${web_elems}  Get WebElements  //tbody//tr
+    ${elem_len}  Get Length  ${web_elems}
+    ${names_list}  Create List
+    ${names_dict}  Create Dictionary
+
+    FOR  ${i}  IN RANGE  1  ${elem_len}+1
+        ${locator}   Set Variable  (//tbody//tr[${i}]/td[2])
+        ${text}  Get Text  ${locator}
+        ${status}  Run Keyword And Return Status  Page Should Contain Element  ${locator}//img
+        IF  ${status}
+            ${text}  Evaluate  r"""${text}""".replace("\\n", "").strip()[1:]
+            Log To Console  ${text}
+        END
+
+        Append to List  ${names_list}  ${text}
+        ${names_dict}  Set To Dictionary  ${names_dict}  name$[i]-${text}
+    END
+
+
+
+
 Launch Browser
     [Arguments]  ${url}=https://google.com
     ${options}  Set Variable  add_argument("--start-maximized")

@@ -1,90 +1,561 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.3 on linux)" generated="2024-10-21T16:06:31.893975" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.12.3 on linux)" generated="2024-10-21T17:33:22.374442" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot" source="/home/citco/robot">
 <suite id="s1-s1" name="AutomationFiles" source="/home/citco/robot/AutomationFiles">
 <suite id="s1-s1-s1" name="Test" source="/home/citco/robot/AutomationFiles/test.robot">
 <test id="s1-s1-s1-t1" name="My First Test Case" line="16">
 <kw name="Launch Browser">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-10-21T16:06:32.198560" level="INFO">${options} = add_argument("--start-maximized")</msg>
+<msg time="2024-10-21T17:33:22.646430" level="INFO">${options} = add_argument("--start-maximized")</msg>
 <var>${options}</var>
 <arg>add_argument("--start-maximized")</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-10-21T16:06:32.198104" elapsed="0.000529"/>
+<status status="PASS" start="2024-10-21T17:33:22.646061" elapsed="0.000446"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-21T16:06:32.199686" level="INFO">Opening browser 'chrome' to base url 'https://google.com' through remote server at '192.168.49.1:4444'.</msg>
+<msg time="2024-10-21T17:33:22.647456" level="INFO">Opening browser 'chrome' to base url 'https://marmelab.com/react-admin-demo' through remote server at '192.168.49.1:4444'.</msg>
 <arg>${url}</arg>
 <arg>chrome</arg>
 <arg>remote_url=192.168.49.1:4444</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-21T16:06:32.198999" elapsed="7.384954"/>
+<status status="PASS" start="2024-10-21T17:33:22.646848" elapsed="6.053735"/>
 </kw>
-<status status="PASS" start="2024-10-21T16:06:32.196628" elapsed="7.387605"/>
+<arg>https://marmelab.com/react-admin-demo</arg>
+<status status="PASS" start="2024-10-21T17:33:22.644630" elapsed="6.056259"/>
 </kw>
+<kw name="Login User">
 <kw name="Input Text">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-21T16:06:39.587494" level="INFO">Typing text 'Angas' into text field 'id:APjFqb'.</msg>
+<msg time="2024-10-21T17:33:28.721489" level="INFO">Typing text 'demo' into text field 'name:username'.</msg>
 <arg>${locator}</arg>
 <arg>${text}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-21T16:06:39.586654" elapsed="0.350530"/>
+<status status="PASS" start="2024-10-21T17:33:28.713004" elapsed="1.142364"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-21T16:06:42.937943" level="INFO">Slept 3 seconds.</msg>
+<msg time="2024-10-21T17:33:32.856204" level="INFO">Slept 3 seconds.</msg>
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-21T16:06:39.937505" elapsed="3.000603"/>
+<status status="PASS" start="2024-10-21T17:33:29.855647" elapsed="3.000884"/>
 </kw>
-<arg>id:APjFqb</arg>
-<arg>Angas</arg>
-<status status="PASS" start="2024-10-21T16:06:39.585600" elapsed="3.352721"/>
+<arg>name:username</arg>
+<arg>${username}</arg>
+<status status="PASS" start="2024-10-21T17:33:28.705681" elapsed="4.151217"/>
 </kw>
 <kw name="Input Text">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-21T16:06:42.939665" level="INFO">Typing text 'Hello' into text field 'name:q'.</msg>
+<msg time="2024-10-21T17:33:32.859521" level="INFO">Typing text 'demo' into text field 'name:password'.</msg>
 <arg>${locator}</arg>
 <arg>${text}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-21T16:06:42.939268" elapsed="0.277389"/>
+<status status="PASS" start="2024-10-21T17:33:32.858793" elapsed="0.211652"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-21T16:06:46.217431" level="INFO">Slept 3 seconds.</msg>
+<msg time="2024-10-21T17:33:36.071891" level="INFO">Slept 3 seconds.</msg>
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-21T16:06:43.216958" elapsed="3.000634"/>
+<status status="PASS" start="2024-10-21T17:33:33.071106" elapsed="3.001076"/>
 </kw>
-<arg>name:q</arg>
-<arg>Hello</arg>
-<status status="PASS" start="2024-10-21T16:06:42.938726" elapsed="3.279036"/>
+<arg>name:password</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-10-21T17:33:32.857459" elapsed="3.215082"/>
 </kw>
-<kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2024-10-21T16:06:46.218698" level="INFO">Sending key(s) ('ENTER',) to name:q element.</msg>
-<msg time="2024-10-21T16:06:46.620241" level="INFO">Pressing special key ENTER to element.</msg>
-<msg time="2024-10-21T16:06:46.620431" level="INFO">Releasing special key ENTER.</msg>
-<arg>name:q</arg>
-<arg>ENTER</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2024-10-21T16:06:46.218083" elapsed="0.581287"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:36.073563" level="INFO">Clicking button '//button'.</msg>
+<arg>//button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:36.073006" elapsed="0.370841"/>
+</kw>
+<kw name="Go To Link">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:36.445636" level="INFO">Clicking element '//a[text()="Customers"]'.</msg>
+<arg>//a[text()="${text}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:36.444823" elapsed="0.542021"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//tbody//tr</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-21T17:33:36.987132" elapsed="1.189735"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-21T16:06:49.800501" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
+<msg time="2024-10-21T17:33:43.178784" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-21T16:06:46.799769" elapsed="3.000909"/>
+<status status="PASS" start="2024-10-21T17:33:38.177183" elapsed="5.001863"/>
 </kw>
-<status status="PASS" start="2024-10-21T16:06:32.195314" elapsed="17.605729"/>
+<arg>Customers</arg>
+<status status="PASS" start="2024-10-21T17:33:36.444208" elapsed="6.735149"/>
+</kw>
+<kw name="Display All Name">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:43.205337" level="INFO">${web_elems} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="bcef1deaf2e5cfca37f6e5ea6c38a4e7", element="f.B04F27F5599B23B77ABBCB230B6E3D08.d.F8D1F0DCFA5822FFF932B2E5EA2723E2.e.78")&gt;, &lt;selenium.webdriv...</msg>
+<var>${web_elems}</var>
+<arg>//tbody//tr</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.180503" elapsed="0.024922"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-10-21T17:33:43.205990" level="INFO">Length is 25.</msg>
+<msg time="2024-10-21T17:33:43.206138" level="INFO">${elem_len} = 25</msg>
+<var>${elem_len}</var>
+<arg>${web_elems}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.205700" elapsed="0.000485"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:43.299903" level="INFO">${current} = J
+Javonte Murphy</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.207092" elapsed="0.092892"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.300269" elapsed="0.000490"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-10-21T17:33:43.206843" elapsed="0.094031"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:43.442141" level="INFO">${current} = E
+Elliot Jones</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.303704" elapsed="0.138508"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.442510" elapsed="0.000404"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2024-10-21T17:33:43.301129" elapsed="0.141894"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:43.792552" level="INFO">${current} = K
+Korey Renner</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.443522" elapsed="0.349181"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.793258" elapsed="0.000770"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2024-10-21T17:33:43.443285" elapsed="0.350971"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:43.925977" level="INFO">${current} = Lue Murazik</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.795267" elapsed="0.130871"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.926795" elapsed="0.000959"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2024-10-21T17:33:43.794853" elapsed="0.133140"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.002117" level="INFO">${current} = S
+Sonia Terry</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:43.929026" elapsed="0.073160"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.002668" elapsed="0.000391"/>
+</kw>
+<var name="${i}">5</var>
+<status status="PASS" start="2024-10-21T17:33:43.928566" elapsed="0.074614"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.054935" level="INFO">${current} = L
+Lorena Nader</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.003675" elapsed="0.051330"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.055261" elapsed="0.000713"/>
+</kw>
+<var name="${i}">6</var>
+<status status="PASS" start="2024-10-21T17:33:44.003475" elapsed="0.052602"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.112511" level="INFO">${current} = D
+Dolly Schuppe</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.056792" elapsed="0.055787"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.112834" elapsed="0.000547"/>
+</kw>
+<var name="${i}">7</var>
+<status status="PASS" start="2024-10-21T17:33:44.056563" elapsed="0.056957"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.162127" level="INFO">${current} = J
+Jennyfer Hauck</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.113979" elapsed="0.048215"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.162478" elapsed="0.000550"/>
+</kw>
+<var name="${i}">8</var>
+<status status="PASS" start="2024-10-21T17:33:44.113771" elapsed="0.049390"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.348996" level="INFO">${current} = L
+Lavinia Grimes</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.163975" elapsed="0.185187"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.351863" elapsed="0.000938"/>
+</kw>
+<var name="${i}">9</var>
+<status status="PASS" start="2024-10-21T17:33:44.163737" elapsed="0.189315"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.443189" level="INFO">${current} = Paolo Pollich</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.356236" elapsed="0.087022"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.443554" elapsed="0.000430"/>
+</kw>
+<var name="${i}">10</var>
+<status status="PASS" start="2024-10-21T17:33:44.355715" elapsed="0.088395"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.522032" level="INFO">${current} = Timothy Hintz</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.444767" elapsed="0.077338"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.522494" elapsed="0.000364"/>
+</kw>
+<var name="${i}">11</var>
+<status status="PASS" start="2024-10-21T17:33:44.444516" elapsed="0.078491"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.593718" level="INFO">${current} = Y
+Yvonne Lueilwitz</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.523482" elapsed="0.070307"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.594050" elapsed="0.000451"/>
+</kw>
+<var name="${i}">12</var>
+<status status="PASS" start="2024-10-21T17:33:44.523259" elapsed="0.071354"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.661031" level="INFO">${current} = C
+Claire Beahan</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.595054" elapsed="0.066047"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.661384" elapsed="0.000348"/>
+</kw>
+<var name="${i}">13</var>
+<status status="PASS" start="2024-10-21T17:33:44.594861" elapsed="0.066979"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.802911" level="INFO">${current} = A
+Anita Medhurst</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.662435" elapsed="0.140550"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.803256" elapsed="0.000400"/>
+</kw>
+<var name="${i}">14</var>
+<status status="PASS" start="2024-10-21T17:33:44.662080" elapsed="0.141713"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.888540" level="INFO">${current} = Jared Feeney</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.804191" elapsed="0.084420"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.888908" elapsed="0.000344"/>
+</kw>
+<var name="${i}">15</var>
+<status status="PASS" start="2024-10-21T17:33:44.804012" elapsed="0.085379"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:44.982895" level="INFO">${current} = W
+Webster Ward</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.889825" elapsed="0.093139"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.983228" elapsed="0.000370"/>
+</kw>
+<var name="${i}">16</var>
+<status status="PASS" start="2024-10-21T17:33:44.889634" elapsed="0.094076"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:45.054964" level="INFO">${current} = Scot Ferry</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:44.984189" elapsed="0.070846"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.055291" elapsed="0.001073"/>
+</kw>
+<var name="${i}">17</var>
+<status status="PASS" start="2024-10-21T17:33:44.983996" elapsed="0.072505"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:45.221706" level="INFO">${current} = T
+Torrey Hoppe</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.056970" elapsed="0.164806"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.222036" elapsed="0.001592"/>
+</kw>
+<var name="${i}">18</var>
+<status status="PASS" start="2024-10-21T17:33:45.056766" elapsed="0.167006"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:45.344511" level="INFO">${current} = C
+Corrine Kuhn</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.224224" elapsed="0.120359"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.344847" elapsed="0.001701"/>
+</kw>
+<var name="${i}">19</var>
+<status status="PASS" start="2024-10-21T17:33:45.224026" elapsed="0.122709"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:45.435935" level="INFO">${current} = L
+Lonie Toy</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.347217" elapsed="0.088788"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.438051" elapsed="0.001413"/>
+</kw>
+<var name="${i}">20</var>
+<status status="PASS" start="2024-10-21T17:33:45.347016" elapsed="0.092586"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:45.561801" level="INFO">${current} = T
+Torey Hansen</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.440946" elapsed="0.120933"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.562160" elapsed="0.000662"/>
+</kw>
+<var name="${i}">21</var>
+<status status="PASS" start="2024-10-21T17:33:45.440173" elapsed="0.122781"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:45.658267" level="INFO">${current} = B
+Brett Bahringer</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.563458" elapsed="0.094906"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.658655" elapsed="0.000431"/>
+</kw>
+<var name="${i}">22</var>
+<status status="PASS" start="2024-10-21T17:33:45.563229" elapsed="0.095970"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:45.800544" level="INFO">${current} = Ayana Miller</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.659726" elapsed="0.140940"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.800952" elapsed="0.001639"/>
+</kw>
+<var name="${i}">23</var>
+<status status="PASS" start="2024-10-21T17:33:45.659523" elapsed="0.143220"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:45.955104" level="INFO">${current} = M
+Meggie Schumm</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.803208" elapsed="0.151968"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.955482" elapsed="0.000444"/>
+</kw>
+<var name="${i}">24</var>
+<status status="PASS" start="2024-10-21T17:33:45.803004" elapsed="0.153097"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-21T17:33:46.041987" level="INFO">${current} = C
+Cameron Schamberger</msg>
+<var>${current}</var>
+<arg>(//tbody//tr[${i}]/td[2])</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-21T17:33:45.956580" elapsed="0.085478"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-21T17:33:46.042352" elapsed="0.002602"/>
+</kw>
+<var name="${i}">25</var>
+<status status="PASS" start="2024-10-21T17:33:45.956382" elapsed="0.088697"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${elem_len}+1</value>
+<status status="PASS" start="2024-10-21T17:33:43.206360" elapsed="2.838823"/>
+</for>
+<status status="PASS" start="2024-10-21T17:33:43.179775" elapsed="2.865716"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-21T17:33:54.046408" level="INFO">Slept 8 seconds.</msg>
+<arg>8s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-21T17:33:46.045796" elapsed="8.000937"/>
+</kw>
+<status status="PASS" start="2024-10-21T17:33:28.704996" elapsed="25.342108"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-21T17:34:02.049269" level="INFO">Slept 8 seconds.</msg>
+<arg>8s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-21T17:33:54.047806" elapsed="8.002039"/>
+</kw>
+<status status="PASS" start="2024-10-21T17:33:22.643387" elapsed="39.410261"/>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-10-21T16:06:49.807928" elapsed="0.296405"/>
+<status status="PASS" start="2024-10-21T17:34:02.056222" elapsed="0.275402"/>
 </kw>
-<status status="PASS" start="2024-10-21T16:06:31.951426" elapsed="18.153061"/>
+<status status="PASS" start="2024-10-21T17:33:22.423633" elapsed="39.908140"/>
 </suite>
-<status status="PASS" start="2024-10-21T16:06:31.949314" elapsed="18.159418"/>
+<status status="PASS" start="2024-10-21T17:33:22.421782" elapsed="39.915027"/>
 </suite>
-<status status="PASS" start="2024-10-21T16:06:31.897775" elapsed="18.215730"/>
+<status status="PASS" start="2024-10-21T17:33:22.377785" elapsed="39.961634"/>
 </suite>
 <statistics>
 <total>
@@ -99,6 +570,6 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2024-10-21T16:06:32.193206" level="WARN">Imported resource file '/home/citco/robot/Resources/SampleResource.resource' is empty.</msg>
+<msg time="2024-10-21T17:33:22.641522" level="WARN">Imported resource file '/home/citco/robot/Resources/SampleResource.resource' is empty.</msg>
 </errors>
 </robot>
