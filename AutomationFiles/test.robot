@@ -14,16 +14,6 @@ ${var_name}  Magnus
 *** Test Cases ***
 # Test Name
 My First Test Case
-    #${local_var}  Set Variable  CookiesAreMine
-    #[Documentation]  My Sample Test Case
-    # Log To Console  ${var_name}
-    # Log To Console  ${my_nickname}
-    # Add Two Numbers  6  9
-    # Concatinate Two Strings  Hello
-    # Display List
-    # For Loop In Range
-    #If Else Sample  2
-    #Try Else If    La
     Launch Browser
     Input Text  id:APjFqb  Angas
 
