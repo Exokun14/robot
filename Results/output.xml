@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on linux)" generated="2024-10-22T16:53:00.410529" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot" source="/home/citco/robot">
+<suite id="s1-s1" name="AutomationFiles" source="/home/citco/robot/AutomationFiles">
+<suite id="s1-s1-s1" name="Test" source="/home/citco/robot/AutomationFiles/test.robot">
+<test id="s1-s1-s1-t1" name="My First Test Case" line="15">
+<kw name="Launch Browser">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T16:53:01.220632" level="INFO">${options} = add_argument("--start-maximized")</msg>
+<var>${options}</var>
+<arg>add_argument("--start-maximized")</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T16:53:01.219229" elapsed="0.001642"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:01.222869" level="INFO">Opening browser 'chrome' to base url 'https://marmelab.com/react-admin-demo' through remote server at '192.168.49.1:4444'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<arg>remote_url=192.168.49.1:4444</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-22T16:53:01.221634" elapsed="6.624079"/>
+</kw>
+<arg>https://marmelab.com/react-admin-demo</arg>
+<status status="PASS" start="2024-10-22T16:53:01.210314" elapsed="6.635694"/>
+</kw>
+<kw name="Login User">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-22T16:53:07.850103" elapsed="0.971301"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:08.822111" level="INFO">Typing text 'demo' into text field 'name:username'.</msg>
+<arg>name:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:08.821712" elapsed="0.231029"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:09.053436" level="INFO">Typing text 'demo' into text field 'name:password'.</msg>
+<arg>name:password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:09.053056" elapsed="0.230730"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:09.284497" level="INFO">Clicking button '//button'.</msg>
+<arg>//button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:09.284150" elapsed="0.460912"/>
+</kw>
+<kw name="Go To Link">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:09.746856" level="INFO">Clicking element '//a[text()="Customers"]'.</msg>
+<arg>//a[text()="${text}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:09.746344" elapsed="0.632362"/>
+</kw>
+<arg>Customers</arg>
+<status status="PASS" start="2024-10-22T16:53:09.745450" elapsed="0.633472"/>
+</kw>
+<status status="PASS" start="2024-10-22T16:53:07.846447" elapsed="2.532645"/>
+</kw>
+<kw name="Go To Link">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:10.389599" level="INFO">Clicking element '//a[text()="Customers"]'.</msg>
+<arg>//a[text()="${text}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:10.388996" elapsed="0.284278"/>
+</kw>
+<arg>Customers</arg>
+<status status="PASS" start="2024-10-22T16:53:10.383235" elapsed="0.290237"/>
+</kw>
+<kw name="Fetch Data">
+<kw name="Get Users As Dict" owner="Users">
+<msg time="2024-10-22T16:53:10.973887" level="INFO">/home/citco/robot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-10-22T16:53:10.975128" level="INFO">${users} = {1: {'Name': 'Leanne Graham', 'Username': 'Bret', 'Email': 'Sincere@april.biz', 'Phone': '1-770-736-8031 x56442', 'Website': 'hildegard.org', 'Address': {'Street': 'Kulas Light', 'Suite': 'Apt. 556', ...</msg>
+<var>${users}</var>
+<status status="PASS" start="2024-10-22T16:53:10.674674" elapsed="0.300589"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-10-22T16:53:10.980757" level="INFO">${USERS} = {1: {'Name': 'Leanne Graham', 'Username': 'Bret', 'Email': 'Sincere@april.biz', 'Phone': '1-770-736-8031 x56442', 'Website': 'hildegard.org', 'Address': {'Street': 'Kulas Light', 'Suite': 'Apt. 556', ...</msg>
+<arg>${USERS}</arg>
+<arg>${users}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-10-22T16:53:10.977741" elapsed="0.003167"/>
+</kw>
+<status status="PASS" start="2024-10-22T16:53:10.674104" elapsed="0.309319"/>
+</kw>
+<kw name="Open Add Identity Model">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:10.986768" level="INFO">Clicking element '//a[@aria-label="Create"]'.</msg>
+<arg>//a[@aria-label="Create"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:10.986385" elapsed="0.694335"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//input[@name="first_name"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-22T16:53:11.681039" elapsed="0.088780"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-22T16:53:16.770948" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-22T16:53:11.770487" elapsed="5.000814"/>
+</kw>
+<status status="PASS" start="2024-10-22T16:53:10.983847" elapsed="5.787802"/>
+</kw>
+<kw name="Fill Up Form">
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-10-22T16:53:16.774131" level="INFO">Length is 10.</msg>
+<msg time="2024-10-22T16:53:16.774421" level="INFO">${user_count} = 10</msg>
+<var>${user_count}</var>
+<arg>${USERS}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-10-22T16:53:16.773574" elapsed="0.000940"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Input Details">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T16:53:16.783694" level="INFO">${firstName} = Leanne</msg>
+<var>${firstName}</var>
+<arg>" ".join("${user["Name"]}".split()[:-1]).strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T16:53:16.780455" elapsed="0.003382"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T16:53:16.786886" level="INFO">${lastName} = Graham</msg>
+<var>${lastName}</var>
+<arg>" ".join("${user["Name"]}".split()[-1:]).strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T16:53:16.784426" elapsed="0.002627"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:16.788405" level="INFO">Typing text 'Leanne' into text field '//input[@name="first_name"]'.</msg>
+<arg>${identity_txt_firstName}</arg>
+<arg>${firstName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:16.787578" elapsed="0.252892"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:17.041714" level="INFO">Typing text 'Graham' into text field '//input[@name="last_name"]'.</msg>
+<arg>${identity_txt_lastName}</arg>
+<arg>${lastName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:17.041218" elapsed="0.321876"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:17.365261" level="INFO">Typing text 'Sincere@april.biz' into text field '//input[@name="email"]'.</msg>
+<arg>${identity_txt_email}</arg>
+<arg>${user['Email']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:17.363416" elapsed="0.354134"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:17.729360" level="INFO">Typing text 'Kulas Light' into text field '//textarea[@name="address"]'.</msg>
+<arg>${identity_txt_address}</arg>
+<arg>${user['Address']['Street']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:17.717951" elapsed="0.300299"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:18.019566" level="INFO">Typing text 'Gwenborough' into text field '//input[@name="city"]'.</msg>
+<arg>${identity_txt_city}</arg>
+<arg>${user['Address']['City']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:18.018540" elapsed="0.286762"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:18.306578" level="INFO">Typing text 'Gwenborough' into text field '//input[@name="stateAbbr"]'.</msg>
+<arg>${identity_txt_stateAbbr}</arg>
+<arg>${user['Address']['City']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:18.305574" elapsed="0.297652"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:18.604570" level="INFO">Typing text '92998-3874' into text field '//input[@name="zipcode"]'.</msg>
+<arg>${identity_txt_zipcode}</arg>
+<arg>${user['Address']['Zipcode']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:18.603523" elapsed="0.313008"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:18.919597" level="INFO">Typing text 'password_Bret' into text field '//input[@name="password"]'.</msg>
+<arg>${identity_txt_password}</arg>
+<arg>password_${user['Username']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:18.916861" elapsed="0.480346"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:19.403054" level="INFO">Typing text 'password_Bret' into text field '//input[@name="confirm_password"]'.</msg>
+<arg>${identity_txt_confirm_password}</arg>
+<arg>password_${user['Username']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:19.401657" elapsed="0.373868"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:19.776352" level="INFO">Clicking button '//button[@aria-label="Save"]'.</msg>
+<arg>${identity_btn_save}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:19.775855" elapsed="0.327512"/>
+</kw>
+<arg>${USERS[${index}]}</arg>
+<status status="PASS" start="2024-10-22T16:53:16.777456" elapsed="3.326133"/>
+</kw>
+<kw name="Go To Link">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:20.105594" level="INFO">Clicking element '//a[text()="Customers"]'.</msg>
+<arg>//a[text()="${text}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T16:53:20.104576" elapsed="0.835556"/>
+</kw>
+<arg>Customers</arg>
+<status status="PASS" start="2024-10-22T16:53:20.103916" elapsed="0.836425"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-10-22T16:53:26.446899" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-127.png"&gt;&lt;img src="selenium-screenshot-127.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-22T16:53:26.447647" level="FAIL">Element '/html/body/div[1]/div/div/main/div[2]/div/div[1]/div[1]/div/a' not visible after 5 seconds.</msg>
+<arg>${create_btn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-10-22T16:53:20.942951" elapsed="5.506428">Element '/html/body/div[1]/div/div/main/div[2]/div/div[1]/div[1]/div/a' not visible after 5 seconds.</status>
+</kw>
+<kw name="Open Add Identity Model">
+<status status="NOT RUN" start="2024-10-22T16:53:26.449736" elapsed="0.000068"/>
+</kw>
+<var name="${index}">1</var>
+<status status="FAIL" start="2024-10-22T16:53:16.776862" elapsed="9.673065">Element '/html/body/div[1]/div/div/main/div[2]/div/div[1]/div[1]/div/a' not visible after 5 seconds.</status>
+</iter>
+<var>${index}</var>
+<value>1</value>
+<value>${user_count + 1}</value>
+<status status="FAIL" start="2024-10-22T16:53:16.774792" elapsed="9.675331">Element '/html/body/div[1]/div/div/main/div[2]/div/div[1]/div[1]/div/a' not visible after 5 seconds.</status>
+</for>
+<status status="FAIL" start="2024-10-22T16:53:16.772609" elapsed="9.677754">Element '/html/body/div[1]/div/div/main/div[2]/div/div[1]/div[1]/div/a' not visible after 5 seconds.</status>
+</kw>
+<status status="FAIL" start="2024-10-22T16:53:01.207706" elapsed="25.243113">Element '/html/body/div[1]/div/div/main/div[2]/div/div[1]/div[1]/div/a' not visible after 5 seconds.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-10-22T16:53:26.452616" elapsed="0.210219"/>
+</kw>
+<status status="FAIL" start="2024-10-22T16:53:00.460560" elapsed="26.203240"/>
+</suite>
+<status status="FAIL" start="2024-10-22T16:53:00.458707" elapsed="26.206726"/>
+</suite>
+<status status="FAIL" start="2024-10-22T16:53:00.414524" elapsed="26.252192"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Robot">Robot</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="AutomationFiles">Robot.AutomationFiles</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Test">Robot.AutomationFiles.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

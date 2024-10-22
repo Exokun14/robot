@@ -1,116 +1,74 @@
 *** Settings ***
 Library  SeleniumLibrary
-Library    ../venv/lib/python3.12/site-packages/robot/libraries/Telnet.py
-Library    ../venv/lib/python3.12/site-packages/robot/libraries/Collections.py
-Resource  ../Resources/SampleResource.resource
+Library  ../venv/lib/python3.12/site-packages/robot/libraries/Telnet.py
+Library  ../venv/lib/python3.12/site-packages/robot/libraries/Collections.py
+Library  ../Libraries/Users.py
 Variables  ../Variables/variable.py
 
-#Suite Setup  Launch Browser
-Suite Teardown  Close Browser  #whole robot file
-#Test Teardown  Close Browser
+Suite Teardown  Close Browser
 
 *** Variables ***
 ${var_name}  Magnus
+${USERS}
 
 *** Test Cases ***
-# Test Name
 My First Test Case
     Launch Browser  https://marmelab.com/react-admin-demo
-    #Input Text  id:APjFqb  Angas
-    #Input Text  name:q  Hello
-    #Press Keys  name:q  ENTER
     Login User
-    sleep  8s
+    Go To Link  Customers
+    Fetch Data
+    Open Add Identity Model
+    Fill Up Form
 
 *** Keywords ***
 Login User
-  [Arguments]  ${username}=demo  ${password}=demo
-  #Wait Until Element Is Visible  //button
-  Input Text  name:username  ${username}
-  Input Text  name:password  ${password}
-  Click Button  //button
-  Go To Link  Customers
-  Display All Name
-  sleep  8s
+    [Arguments]  ${username}=demo  ${password}=demo
+    Wait Until Element Is Visible  //button
+    Input Text  name:username  ${username}
+    Input Text  name:password  ${password}
+    Click Button  //button
+    Go To Link  Customers
 
 Go To Link
-  [Arguments]  ${text}
-  Click Element  //a[text()="${text}"]
-  Wait Until Element Is Visible  //tbody//tr
-  sleep  5s
-
-Display All Name
-    ${web_elems}  Get WebElements  //tbody//tr
-    ${elem_len}  Get Length  ${web_elems}
-    ${names_list}  Create List
-    ${names_dict}  Create Dictionary
-
-    FOR  ${i}  IN RANGE  1  ${elem_len}+1
-        ${locator}   Set Variable  (//tbody//tr[${i}]/td[2])
-        ${text}  Get Text  ${locator}
-        ${status}  Run Keyword And Return Status  Page Should Contain Element  ${locator}//img
-        IF  ${status}
-            ${text}  Evaluate  r"""${text}""".replace("\\n", "").strip()[1:]
-            Log To Console  ${text}
-        END
-
-        Append to List  ${names_list}  ${text}
-        ${names_dict}  Set To Dictionary  ${names_dict}  name$[i]-${text}
-    END
-
-
-
+    [Arguments]  ${text}
+    Click Element  //a[text()="${text}"]
 
 Launch Browser
     [Arguments]  ${url}=https://google.com
-    ${options}  Set Variable  add_argument("--start-maximized")
+    ${options}=  Set Variable  add_argument("--start-maximized")
     Open Browser  ${url}  chrome  remote_url=192.168.49.1:4444  options=${options}
-If Else Sample
-  [Arguments]  ${number}
 
-  ${is_even}  Evaluate  ${number} % 2 == 0
-  IF  ${is_even}
-      Log To Console  Number is even
-  ELSE
-      Log To Console  Number is odd
-  END
+Fetch Data
+    ${users}=  Get Users As Dict
+    Set Suite Variable  ${USERS}  ${users}
 
-Display List
-  ${my_list}  Create List  1  2  3  4
+Open Add Identity Model
+    Click Element  //a[@aria-label="Create"]
+    Wait Until Element Is Visible  //input[@name="first_name"]
+    Sleep  5s
 
-  FOR  ${i}  IN  @{my_list}
-      Log To Console  ${i}
-  END
+Fill Up Form
+    ${user_count}=  Get Length  ${USERS}
+    FOR  ${index}  IN RANGE  1  ${user_count + 1}
+        Input Details  ${USERS[${index}]}
+        
+        Go To Link  Customers
+        Wait Until Element Is Visible  ${create_btn}
+        Open Add Identity Model
+    END
 
-For Loop In Range
-  FOR  ${counter}  IN RANGE  1  10  1
-      Log To Console  ${counter}
-  END
-Add Two Numbers
-  [Arguments]  ${num_1}  ${num_2}
-  ${sum}  Evaluate  ${num_1} + ${num_2}
-  Log To Console  ${sum}
+Input Details
+  [Arguments]  ${user}
+    ${firstName}  Evaluate    " ".join("${user["Name"]}".split()[:-1]).strip()
+    ${lastName}  Evaluate    " ".join("${user["Name"]}".split()[-1:]).strip()
 
-Concatinate Two Strings
-  [Arguments]  ${string_1}  ${string_2}=Mundo
-  ${concatinated}  Set Variable  ${string_1} ${string_2}\
-  Log To Console  ${concatinated}
-
-Try Else If
-  [Arguments]  ${string}
-    ${is_hello}=  Evaluate  '${string}' == 'Hello'
-    ${is_world}=  Evaluate  '${string}' == 'World'
-    
-  IF  ${is_hello}
-    Log To Console    "Hello"
-  ELSE IF    ${is_world}
-    Log To Console    "World"
-  ELSE
-    Log To Console    "Ahri"
-  END
-
-Input Text
-  [Arguments]  ${locator}  ${text}
-  SeleniumLibrary.Input Text  ${locator}  ${text}
-  sleep  3s
-
+    Input Text    ${identity_txt_firstName}  ${firstName}
+    Input Text    ${identity_txt_lastName}  ${lastName}
+    Input Text    ${identity_txt_email}  ${user['Email']}
+    Input Text    ${identity_txt_address}  ${user['Address']['Street']}
+    Input Text    ${identity_txt_city}  ${user['Address']['City']}
+    Input Text    ${identity_txt_stateAbbr}  ${user['Address']['City']}
+    Input Text    ${identity_txt_zipcode}  ${user['Address']['Zipcode']}
+    Input Text    ${identity_txt_password}  password_${user['Username']}
+    Input Text    ${identity_txt_confirm_password}  password_${user['Username']}
+    Click Button  ${identity_btn_save}
